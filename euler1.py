@@ -1,3 +1,4 @@
+"""rewrite for speed"""
 def testing():
 	r = range(1, 1000)
 	res_three = []
@@ -26,8 +27,6 @@ def testing():
 		
 	print total
 
-def returnModuloOfThree(x):
-    return x % 3
 
 if __name__ == '__main__':
     testing()
