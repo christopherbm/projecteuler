@@ -1,3 +1,11 @@
+"""
+Warning: Do not run unless you have a really long time to wait for it to complete. Not
+fully tested. Works for n=13195.
+
+The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143 ?
+"""
+
 def euler():
 	n = 600851475143
 	# prime factors: 5, 7, 13, 29
