@@ -5,11 +5,14 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 """
 
 def euler():
-	largest_palidrome = 0
+
+	#digits = 99 # two digit palindrome
+	digits = 999
+	largest_palindrome = 0
 	n = 1
-	while(n <= 99):
+	while(n <= digits):
 		i = 1
-		while(i <= 99):
+		while(i <= digits):
 			m = i * n
 
 			# convert number to string and
@@ -21,17 +24,17 @@ def euler():
 				m_r = m[::-1]
 				
 				j = 0
-				not_palidrome = False
+				not_palindrome = False
 				while(j <= length):
 					if m[j] != m_r[j]:
-						not_palidrome = True
+						not_palindrome = True
 					j = j + 1
 				
 				# double negative logic - change later to be more concise
-				if(not_palidrome == False):
+				if(not_palindrome == False):
 					m = int(m)
-					if(m > largest_palidrome):
-						largest_palidrome = m
+					if(m > largest_palindrome):
+						largest_palindrome = m
 					
 			# increment internal while loop
 			i = i + 1
@@ -39,7 +42,7 @@ def euler():
 		#increment external while loop
 		n = n + 1
 		
-	print largest_palidrome
+	print largest_palindrome
 
 
 if __name__ == '__main__':
