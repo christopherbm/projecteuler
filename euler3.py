@@ -29,6 +29,15 @@ def doFactor(n):
 	
 	return l
 	
+def isPrime(n):
+	if(n % 2 == 0 or n % 3 == 0 or n % 5 == 0):
+		return False
+		
+	s = math.ceil( math.sqrt(n) )
+	while( s > 1 ):
+		if n % s == 0:
+			return False
+		s = s - 1
 
 if __name__ == '__main__':
     euler()
