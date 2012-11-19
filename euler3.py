@@ -1,6 +1,5 @@
 """
-Warning: Do not run unless you have a really long time to wait for it to complete. Not
-fully tested. Works for n=13195.
+Finally works.
 
 The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
@@ -9,62 +8,32 @@ import sys
 import math
 
 def euler():
-	n = 600851475143
-	# prime factors: 5, 7, 13, 29
+	fs = []
 	#n = 13195
+	n = 600851475143
+	s = math.ceil( math.sqrt(n) )
+	if(n %2 == 0):
+		# 2 is a prime factor
+		fs.append(2)
 	
-	p = 5
-	pm = 0
-	finished = False
-	while(finished == False):
-		if( isPrime(p) ):
-			if(p*2 > n):
-				finished = True
-			
-			# on first iteration
-			if(pm == 0):
-				i = 2 
-				while(i != 0):
-					res = p * i
-					if(res == n):
-						# is prime factor
-						print p
-						pm = i
-						i = 0
-					elif(res > n):
-						# not a factor
-						i = 0
-					else:
-						i = i + 1
-			
-			# not first iteration
-			i = pm
-			while(i > 1):
-				res = p * i
-				if(res == n):
-					# is prime factor
-					print p
-					pm = i
-					i = 0
-				elif(res < n):
-					#not a factor
-					i = 0
-				else:
-					i = i - 1
+	while(n % 2 == 0):
+		n = n / 2
 		
-		# increment p by 2 to keep odd
-		p = p + 2
+	f = 3
+	cont = True
+	while(cont):
+		if( n % f == 0 ):
+			# f is a factor
+			fs.append(f)
+			n = n / f
+		else:
+			f = f + 2
 		
-def doFactor(n):
-	l = []
-	i = 2
-	while i < n:
-		if n % i == 0:
-			l.append(i)
-		i = i + 1
+		if(f > s):
+			cont = False
 	
-	return l
-	
+	print fs
+			
 def isPrime(n):
 	if(n % 2 == 0 or n % 3 == 0 or n % 5 == 0):
 		return False
