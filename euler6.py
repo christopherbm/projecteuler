@@ -13,8 +13,13 @@ numbers and the square of the sum.
 """
 
 def euler():
-	#shell
-		
+	r = range(1, 101)
+	def f(x): return x*x
+	s1 = sum( map(f, r) )
+	
+	s2 = f( sum( range(1,101) ) )
+	
+	print s2 - s1
 
 if __name__ == '__main__':
     euler()
